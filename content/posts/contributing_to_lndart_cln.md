@@ -5,6 +5,7 @@ description: "This blog post elaborates on how to contribute to the lndart.cln r
 date: "2022-08-14"
 tags: [lightning-network]
 ---
+![lndart](https://raw.githubusercontent.com/swaptr/site/master/static/images/logo.png "lndart.cln")
 
 [lndart.cln](https://github.com/dart-lightning/lndart.cln) is a Dart framework for Core Lightning. This package is really handy if you wish to interact with your lightning node and develop some cool plugins for it. This post offers detailed guide on how you can start contributing to the lndart.cln package.
 

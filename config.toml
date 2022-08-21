@@ -15,7 +15,10 @@ pygmentscodefencesguesssyntax = true
 subtitle = "This was supposed to be fun and it's not fun because it's too hard."
 
 # Optional 64x64 avatar image.
-avatar = "https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"
+avatar = "https://avatars.githubusercontent.com/u/83858160?v=4"
+
+# Specify favicon (icons/i.png maps to static/icons/i.png). No favicon if not defined.
+favicon = "icons/favicon.ico"
 
 featherIconsCDN = true
 
@@ -58,7 +61,7 @@ url = "https://twitter.com/swaptr06"
 [[params.social]]
 name = "RSS"
 icon = "rss"
-url = "/index.xml"
+url = "index.xml"
 
 [taxonomies]
 tag = "tags"

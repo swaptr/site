@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://swaptr.github.io/site"
 languageCode = "en-us"
 title = "swaptr's blog"
 theme = "/"

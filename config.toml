@@ -1,8 +1,9 @@
-baseURL = "https://swaptr.github.io/site"
+baseURL = "https://swaptr.github.io/site/"
 languageCode = "en-us"
 title = "swaptr's blog"
 theme = "/"
 paginate = 5
+publishDir = "docs"
 
 copyright = "© The MIT License (MIT)"
 
@@ -10,17 +11,11 @@ pygmentsstyle = "vs"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
-googleAnalytics = "UA-123-45"
-disqusShortname = "ink-demo"
-
 [params]
 subtitle = "This was supposed to be fun and it's not fun because it's too hard."
 
 # Optional 64x64 avatar image.
 avatar = "https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"
-
-# Content types to disable Disqus on.
-disableDisqusTypes = ["page"]
 
 featherIconsCDN = true
 

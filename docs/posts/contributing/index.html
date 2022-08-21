@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Contributing to lndart.cln - swaptr&#39;s blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="Contributing to lndart.cln">
+<meta itemprop="description" content="This blog post elaborates on how to contribute to the lndart.cln repository."><meta itemprop="datePublished" content="2022-08-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-08-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="417">
+<meta itemprop="keywords" content="lightning-network," /><meta property="og:title" content="Contributing to lndart.cln" />
+<meta property="og:description" content="This blog post elaborates on how to contribute to the lndart.cln repository." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://swaptr.github.io/site/posts/contributing/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-08-14T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Contributing to lndart.cln"/>
+<meta name="twitter:description" content="This blog post elaborates on how to contribute to the lndart.cln repository."/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://swaptr.github.io/site/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://swaptr.github.io/site/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://swaptr.github.io/site/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://swaptr.github.io/site/js/main.js"></script>
+</head>
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<div class="avatar">
+		<a href="https://swaptr.github.io/site/">
+			<img src="https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg" alt="swaptr&#39;s blog" />
+		</a>
+	</div>
+	
+	<h1 class="site-title"><a href="https://swaptr.github.io/site/">swaptr&#39;s blog</a></h1>
+	<div class="site-description"><p style="font-size:14px;">This was supposed to be fun and it&rsquo;s not fun because it&rsquo;s too hard.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/swaptr" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/swaptr06" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="/index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/site/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/site/posts">Posts</a>
+			</li>
+			
+			<li>
+				<a href="/site/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/site/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">14</span>
+							<span class="rest">Aug 2022</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Contributing to lndart.cln</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p><a href="https://github.com/dart-lightning/lndart.cln">lndart.cln</a> is a Dart framework for Core Lightning. This package is really handy if you wish to interact with your lightning node and develop some cool plugins for it. This post offers detailed guide on how you can start contributing to the lndart.cln package.</p>
+<p>The only requirement is to have a working Dart SDK. You can follow instructions from <a href="https://dart.dev/get-dart">here</a> to get up and running.</p>
+<p>To get started, one should first fork and clone the repository <a href="https://github.com/dart-lightning/lndart.cln">lndart.cln</a>. The instructions on doing that can be found <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">here</a>.</p>
+<p>Let&rsquo;s first understand the structure of this repository.</p>
+<p>The repository is structured as a monorepo which means it houses several related tools together, four in this case:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>packages
+</span></span><span style="display:flex;"><span>|
+</span></span><span style="display:flex;"><span>└─── cln_common
+</span></span><span style="display:flex;"><span>|
+</span></span><span style="display:flex;"><span>└─── cln_plugin
+</span></span><span style="display:flex;"><span>|
+</span></span><span style="display:flex;"><span>└─── lnlambda
+</span></span><span style="display:flex;"><span>|
+</span></span><span style="display:flex;"><span>└─── rpc
+</span></span></code></pre></div><ul>
+<li>The <a href="https://github.com/dart-lightning/lndart.cln/tree/main/packages/cln_common">lndart.cln_common</a> package houses all the utilities and interfaces for other subsidiary packages to use.</li>
+<li><a href="https://github.com/dart-lightning/lndart.cln/tree/main/packages/cln_plugin">lndart.cln_plugin</a> is a Dart library that provides ergonomic support to developing custom plugins for Core Lightning. It provides comprehensive and robust support to developing plugins using functional and object-oriented methods.</li>
+<li><a href="https://github.com/dart-lightning/lndart.cln/tree/main/packages/lnlambda">lnlambda</a> is a minimal interface to run lnlambda function with Dart.</li>
+<li>The <a href="https://github.com/dart-lightning/lndart.cln/tree/main/packages/rpc">lndart.rpc</a> package is a cool tool to interact with the Core Lightning RPC interface.</li>
+</ul>
+<p>If you are looking to contribute to the repository, it is highly recommended that you go through the <a href="https://docs.page/dart-lightning/lndart.clightning/dev/MAINTAINERS">Hacking Guide</a>.</p>
+<p>This is a well documented package with essential examples guiding you along the way in case you get stuck. The documentation can be found <a href="https://docs.page/dart-lightning/lndart.clightning">here</a>.</p>
+<p>You can use any IDE or text editor of your choice to hack the codebase or develop plugins. A good recommendation would be <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> with the <a href="https://plugins.jetbrains.com/plugin/6351-dart">Dart plugin</a> installed.</p>
+<p>It is expected that any patches submitted are well formatted. To ensure this you should run <code>make fmt</code> inside the package directory. You can also use the dart formatter for this by running <code>dart format file-name</code>.</p>
+<p>All code must be written with the expectation of a successful release. As with <strong>lndart.cln</strong>, we have the possibility to release the packages either individually or simultaneously. To make our lives easier, we can generate the changelog before a release with a minimal overhead using <a href="https://github.com/vincenzopalazzo/changelog.dart">changelog.dart</a>.<br>
+The instructions on how to make a release can be summarized as following:</p>
+<ol>
+<li>Bump the version number in the package and the <code>changelog.json</code> according to the package versioning <a href="https://dart.dev/tools/pub/versioning">guide</a>.</li>
+<li>Generating the changelog for the package(s) is essential for every release. To generate the changelog you can refer to <a href="https://docs.page/dart-lightning/lndart.clightning/dev/MAINTAINERS#how-to-make-the-release">here</a>.</li>
+<li>Make a GitHub release using the following tags:
+<ul>
+<li><strong>Minor release</strong>: <code>{package_name}-v{version_number}</code></li>
+<li><strong>Major release</strong>: <code>v{version_number}</code></li>
+</ul>
+</li>
+</ol>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/lightning-network">lightning-network</a></li>
+							
+						</ul>
+					
+				
+			</div></div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2022  © The MIT License (MIT) |  Swapnil Tripathi
+		</div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

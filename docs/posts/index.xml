@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on swaptr&#39;s blog</title>
+    <link>https://swaptr.github.io/site/posts/</link>
+    <description>Recent content in Posts on swaptr&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© The MIT License (MIT)</copyright>
+    <lastBuildDate>Sun, 14 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://swaptr.github.io/site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Contributing to lndart.cln</title>
+      <link>https://swaptr.github.io/site/posts/contributing/</link>
+      <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://swaptr.github.io/site/posts/contributing/</guid>
+      <description>lndart.cln is a Dart framework for Core Lightning. This package is really handy if you wish to interact with your lightning node and develop some cool plugins for it. This post offers detailed guide on how you can start contributing to the lndart.cln package.
+The only requirement is to have a working Dart SDK. You can follow instructions from here to get up and running.
+To get started, one should first fork and clone the repository lndart.</description>
+    </item>
+    
+  </channel>
+</rss>

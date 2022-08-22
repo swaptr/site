@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© The MIT License (MIT)</copyright>
-    <lastBuildDate>Sun, 14 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://swaptr.github.io/site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://swaptr.github.io/site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Develop custom plugins for Core Lightning</title>
+      <link>https://swaptr.github.io/site/posts/how_to_use_lndart_cln/</link>
+      <pubDate>Sun, 21 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://swaptr.github.io/site/posts/how_to_use_lndart_cln/</guid>
+      <description>Hello again, today we will look into developing custom plugins for Core Lightning using the Dart programming language. Core Lightning ships with a solid and high-performant core written in the C programming language, and extended functionality is provided through plugins. Some plugins critical to the functioning of Core Lightning are shipped along, whereas there are many community curated plugins available as well.
+So let&amp;rsquo;s get into it and start developing our next great idea.</description>
+    </item>
+    
     <item>
       <title>Contributing to lndart.cln</title>
       <link>https://swaptr.github.io/site/posts/contributing_to_lndart_cln/</link>

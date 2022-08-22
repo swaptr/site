@@ -1,7 +1,7 @@
 ---
 title: "Contributing to lndart.cln"
 author: "swaptr"
-description: "This blog post elaborates on how to contribute to the lndart.cln repository."
+description: "This blog post elaborates on how to contribute to the lndart.cln repository. We will list everything you need to know for maintaining and housing the repository."
 date: "2022-08-14"
 tags: [lightning-network]
 ---

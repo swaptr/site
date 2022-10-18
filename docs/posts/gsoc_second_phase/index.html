@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>GSOC: Second Phase - swaptr&#39;s blog</title><link rel="icon" type="image/png" href=icons/favicon.ico /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="GSOC: Second Phase">
+<meta itemprop="description" content="This blog post comprises of the experience of building Kasts during the second stage of Google Summer of Code 2021 at KDE Community."><meta itemprop="datePublished" content="2021-08-22T06:30:22+05:30" />
+<meta itemprop="dateModified" content="2021-08-22T06:30:22+05:30" />
+<meta itemprop="wordCount" content="704">
+<meta itemprop="keywords" content="gsoc,kde," /><meta property="og:title" content="GSOC: Second Phase" />
+<meta property="og:description" content="This blog post comprises of the experience of building Kasts during the second stage of Google Summer of Code 2021 at KDE Community." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://swaptr.github.io/site/posts/gsoc_second_phase/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-22T06:30:22+05:30" />
+<meta property="article:modified_time" content="2021-08-22T06:30:22+05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GSOC: Second Phase"/>
+<meta name="twitter:description" content="This blog post comprises of the experience of building Kasts during the second stage of Google Summer of Code 2021 at KDE Community."/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://swaptr.github.io/site/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://swaptr.github.io/site/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://swaptr.github.io/site/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://swaptr.github.io/site/js/main.js"></script>
+</head>
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<div class="avatar">
+		<a href="https://swaptr.github.io/site/">
+			<img src="https://avatars.githubusercontent.com/u/83858160?v=4" alt="swaptr&#39;s blog" />
+		</a>
+	</div>
+	
+	<h1 class="site-title"><a href="https://swaptr.github.io/site/">swaptr&#39;s blog</a></h1>
+	<div class="site-description"><p style="font-size:14px;">This was supposed to be fun and it&rsquo;s not fun because it&rsquo;s too hard.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/swaptr" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/swaptr06" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/site/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/site/posts">Posts</a>
+			</li>
+			
+			<li>
+				<a href="/site/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/site/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">22</span>
+							<span class="rest">Aug 2021</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">GSOC: Second Phase</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>Hey everyone, it&rsquo;s been more than a month since I last wrote. This part of my GSoC project had to do more with reading and understanding than just coding. We continue from the last where we left off, I had to start with the more challenging issue of providing android integration to Kasts and adding chapter markers. While the latter was pretty easy, the former was something I was dreading from the beginning as I have zero experience with Android programming.<br>
+The android platform is HUGE and it was a pretty daunting task at first to get started with, knowing that I have to write production-level code in only a few weeks and on a topic that is so new to me. The first thing I did was to interact with my mentor on what is being expected out of it. So I was tasked with creating a media session for android. Kasts was already ported to android but when there is media content playing on android, there is just no way to control it from outside the app. This is where media sessions come in. They provide a universal way to interact with the underlying audio player. Media sessions are to Android what MPRIS is for Linux. A media session allows an app to expose playback externally and to receive commands in the form of physical buttons pressed (play/pause button on an earpiece or TV remotes or the Google assistant).<br>
+The android documentation does a great job in explaining what needs to be done to create a media session, creating an instance of MediaSessionCompat for the basic session (For Kasts we don’t really need the MediaControllerCompat) and then implementing the callbacks (onPause(), onPlay(), etc) to control the playback. In retrospect, this part was confusing me for some reason, what I was failing to understand was that the media session does not manage the media player. The player and the session ought to be different components and should be managed separately.<br>
+So I started working on this relatively late, partly because I had a lot of android stuff to read before I could even start with this. In the meantime I started a small android personal project to boost my learning, nothing fancy, just a basic calculator, but it works well and it&rsquo;s my first android app so that was good. I was able to create a session successfully but for some reason I was not able to show the notification. This is where my mentor Tobias helped me with a very important patch of adding the notification. Once we got that working, I started working on making the session interact with our underlying C++ media player over the JNI. So the way it works is that we have two classes in the android support library to maintain the playback state and metadata, ie. the PlaybackStateCompat and the MediaMetadataCompat. We use an object of the former to describe the media state and of the latter to describe the metadata of the content playing. We send requests from the android server side to the C++ client to do all the playback changes according to the session state and which enables the client to inform the android(java) side of the metadata changes accordingly. It makes sense once you get the hang of it, which clearly it didn&rsquo;t for me ;)<br>
+After some tries, it started working fine. The client and the server would remain in sync and the metadata would be preserved according to the state so that would turn out to be fine. There were some features that could not be completed like Seeking which I plan on finishing after GSoC.<br>
+Now the last issue on the list was adding the podcast chapter markers. Chapter marks are clickable points used to break an audio/video into sections and they let users jump to a specific time of the media. I used the podlove simple chapters, a formal to extend Atom and RSS feeds to define chapter structures. The task was accomplished by first fetching everything that represents a chapter and adding it to the database with their title, name, start time, link, image and then using a model to list them according to the podcast id.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/gsoc">gsoc</a></li>
+							
+							<li><a href="/tags/kde">kde</a></li>
+							
+						</ul>
+					
+				
+			</div></div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2022  © The MIT License (MIT) |  Swapnil Tripathi
+		</div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

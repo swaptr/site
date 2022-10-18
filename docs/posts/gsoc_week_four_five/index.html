@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>GSOC: Week Four and Five - swaptr&#39;s blog</title><link rel="icon" type="image/png" href=icons/favicon.ico /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="GSOC: Week Four and Five">
+<meta itemprop="description" content="This blog post sums up my week 4 and 5 at KDE Community during the Google Summer of Code 2021."><meta itemprop="datePublished" content="2021-07-12T19:05:43+05:30" />
+<meta itemprop="dateModified" content="2021-07-12T19:05:43+05:30" />
+<meta itemprop="wordCount" content="532">
+<meta itemprop="keywords" content="gsoc,kde," /><meta property="og:title" content="GSOC: Week Four and Five" />
+<meta property="og:description" content="This blog post sums up my week 4 and 5 at KDE Community during the Google Summer of Code 2021." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://swaptr.github.io/site/posts/gsoc_week_four_five/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-12T19:05:43+05:30" />
+<meta property="article:modified_time" content="2021-07-12T19:05:43+05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GSOC: Week Four and Five"/>
+<meta name="twitter:description" content="This blog post sums up my week 4 and 5 at KDE Community during the Google Summer of Code 2021."/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://swaptr.github.io/site/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://swaptr.github.io/site/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://swaptr.github.io/site/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://swaptr.github.io/site/js/main.js"></script>
+</head>
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<div class="avatar">
+		<a href="https://swaptr.github.io/site/">
+			<img src="https://avatars.githubusercontent.com/u/83858160?v=4" alt="swaptr&#39;s blog" />
+		</a>
+	</div>
+	
+	<h1 class="site-title"><a href="https://swaptr.github.io/site/">swaptr&#39;s blog</a></h1>
+	<div class="site-description"><p style="font-size:14px;">This was supposed to be fun and it&rsquo;s not fun because it&rsquo;s too hard.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/swaptr" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/swaptr06" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/site/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/site/posts">Posts</a>
+			</li>
+			
+			<li>
+				<a href="/site/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/site/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">12</span>
+							<span class="rest">Jul 2021</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">GSOC: Week Four and Five</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>So back from where we left off, I completed majority of work on the other branches. Don&rsquo;t be fooled from my casual attitude towards things, the work was still important since we had to add tooltips to various controls and keyboard navigation. Now the tooltips part was relatively simpler, both in coding as well as in reviewing, but for simplicity I merged both the issues into one. So at first I started rebasing these branches and taking away stuffs to their respective branches and creating separate merge requests in the process. With that done and ready to be reviewed, we can move to the errors on the work/podcastsearchmodel branch. I had to finish the API with more role names and incorporating it all into the QML side of things. That required an extensive internal debate as to using a dialog to display the feed overviews. My initial idea was to use a simple dialog to display the metadata for the podcast and for the mobile I could add a drawer that would pop up everytime the user wants to glance at what the podcast has to offer. Bart brought this to my attention that we could reuse the Feed details page entirely if there were some critical changes done very cheekily. Plus it would remain consistent with the app behavior to push pages when we wish to look at the podcast details. So that did sound like a valid suggestion and I got to working. Scrapped the code for drawers and dialogs and refactored the Feed details page and voila, its working great and looks wonderful too. :)<br>
+Later this week there were several issues raised on invent, 4 in fact, namely the one with the user should be able to change the storage location for the downloaded enclosures, content sync between devices, slowing the playback speed. So I decided to start working on one of those issues, &ldquo;slowing the playback rate&rdquo;. I added a new Merge Request for the same and the it was merged.<br>
+My tasks from next week would be to start working on Android platform integration and I am really excited for it.<br>
+This week was a build up towards my second phase of GSoC which would be to add Android Platform Integration. So to begin with, I now have to move from compiling in my host machine to the exciting world of Docker. I started working on a feature for Kasts. The feature would allow to display a list of user&rsquo;s search history on the Discover page. The trick is just to make it a persistent list model which can then be used to populate the views. This being a relatively easier issue and something that I have previously worked on, didn&rsquo;t take much time. Now I am slightly unsure of the scope of this feature but we see it in every media and podcatcher so I thought it would be a good addition to Kasts. I also modified the model for basic interaction by the user, like to clear the search history and then did create a new merge request for the same.<br>
+The next week would be evaluations and I feel confident with my work.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/gsoc">gsoc</a></li>
+							
+							<li><a href="/tags/kde">kde</a></li>
+							
+						</ul>
+					
+				
+			</div></div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2022  © The MIT License (MIT) |  Swapnil Tripathi
+		</div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

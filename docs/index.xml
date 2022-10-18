@@ -30,6 +30,75 @@ To get started, one should first fork and clone the repository lndart.</descript
     </item>
     
     <item>
+      <title>GSOC: Second Phase</title>
+      <link>https://swaptr.github.io/site/posts/gsoc_second_phase/</link>
+      <pubDate>Sun, 22 Aug 2021 06:30:22 +0530</pubDate>
+      
+      <guid>https://swaptr.github.io/site/posts/gsoc_second_phase/</guid>
+      <description>Hey everyone, it&amp;rsquo;s been more than a month since I last wrote. This part of my GSoC project had to do more with reading and understanding than just coding. We continue from the last where we left off, I had to start with the more challenging issue of providing android integration to Kasts and adding chapter markers. While the latter was pretty easy, the former was something I was dreading from the beginning as I have zero experience with Android programming.</description>
+    </item>
+    
+    <item>
+      <title>GSOC: Week Four and Five</title>
+      <link>https://swaptr.github.io/site/posts/gsoc_week_four_five/</link>
+      <pubDate>Mon, 12 Jul 2021 19:05:43 +0530</pubDate>
+      
+      <guid>https://swaptr.github.io/site/posts/gsoc_week_four_five/</guid>
+      <description>So back from where we left off, I completed majority of work on the other branches. Don&amp;rsquo;t be fooled from my casual attitude towards things, the work was still important since we had to add tooltips to various controls and keyboard navigation. Now the tooltips part was relatively simpler, both in coding as well as in reviewing, but for simplicity I merged both the issues into one. So at first I started rebasing these branches and taking away stuffs to their respective branches and creating separate merge requests in the process.</description>
+    </item>
+    
+    <item>
+      <title>GSOC: Week Three</title>
+      <link>https://swaptr.github.io/site/posts/gsoc_week_three/</link>
+      <pubDate>Thu, 01 Jul 2021 05:58:37 +0530</pubDate>
+      
+      <guid>https://swaptr.github.io/site/posts/gsoc_week_three/</guid>
+      <description>Just one of those days when you wake up and feel like &amp;ldquo;I knew there was something wrong, or something way too easy&amp;rdquo;. It seemed like an average task but I was sure I was missing something.
+So what am I talking about??!!
+Well, GPodder is a pretty basic API and hence it does not offer you anything too fancy, and hence from all that I could use, it still felt that page is pretty minimal since the search delegate could not be populated with anythingmore than the podcast name in all honesty, this is too bad since I was expecting it to atleast return some images and more metadata.</description>
+    </item>
+    
+    <item>
+      <title>GSOC: Week Two</title>
+      <link>https://swaptr.github.io/site/posts/gsoc_week_two/</link>
+      <pubDate>Mon, 21 Jun 2021 03:28:37 +0530</pubDate>
+      
+      <guid>https://swaptr.github.io/site/posts/gsoc_week_two/</guid>
+      <description>After few regressions and hours of fixing issues I got the headerbar and sidebar revamp MR merged so we start the week on a high and more than that we had the first official build of Kasts, yay!
+Sprucing up my content discovery this week and now with a plan to tackle it, I was able to use a XmlListModel and parse the OPML file and was able to put together a MR for the same.</description>
+    </item>
+    
+    <item>
+      <title>GSOC: Week One</title>
+      <link>https://swaptr.github.io/site/posts/gsoc_week_one/</link>
+      <pubDate>Mon, 14 Jun 2021 04:22:17 +0530</pubDate>
+      
+      <guid>https://swaptr.github.io/site/posts/gsoc_week_one/</guid>
+      <description>So last blog we finished on the kdereview thing. I remind you this because a lot of work this week would end up being related to issues raised in the kdereview.
+We started by fixing issues with the color of the HeaderBar, a lot of which were basic fixes in accordance to KDE visual guidelines. Now that we had people from the VDG involved, we could now hope to better insights into the graphical aspects of the app.</description>
+    </item>
+    
+    <item>
+      <title>GSOC: Community Bonding</title>
+      <link>https://swaptr.github.io/site/posts/gsoc_community_bonding/</link>
+      <pubDate>Mon, 07 Jun 2021 15:53:47 +0530</pubDate>
+      
+      <guid>https://swaptr.github.io/site/posts/gsoc_community_bonding/</guid>
+      <description>Hello everyone! So what a way to start the community bonding period. Kasts just got it&amp;rsquo;s new logo, isn&amp;rsquo;t that great!. The svg render was facing some problems in the beginning but finally we no longer share the Alligator logo, we got here, yay!
+So, Community Bonding, Now for people who just had a poof! moment and who don&amp;rsquo;t quite have the idea of how things work in GSoC, we are supposed to provide our communication details in our proposals and that includes your IRC nick, phone number, email, among other things.</description>
+    </item>
+    
+    <item>
+      <title>GSOC: Onboarding</title>
+      <link>https://swaptr.github.io/site/posts/gsoc_onboarding/</link>
+      <pubDate>Thu, 20 May 2021 19:32:19 +0530</pubDate>
+      
+      <guid>https://swaptr.github.io/site/posts/gsoc_onboarding/</guid>
+      <description>Hello everyone! I will be participating in the Google Summer of Code 2021. I will be working on adding podcast support to Kasts.
+Originally I was supposed to add podcast support to a different KDE app, Alligator. We had several discussions on the Plasma Mobile matrix room and the sole merge request with a basic podcast support which had huge improvements added by Bart De Vries was ultimately split into another app, Kasts.</description>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>https://swaptr.github.io/site/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

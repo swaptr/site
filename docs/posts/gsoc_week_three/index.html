@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>GSOC: Week Three - swaptr&#39;s blog</title><link rel="icon" type="image/png" href=icons/favicon.ico /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="GSOC: Week Three">
+<meta itemprop="description" content="This blog post highlights my third week at KDE Community during the Google Summer of Code 2021."><meta itemprop="datePublished" content="2021-07-01T05:58:37+05:30" />
+<meta itemprop="dateModified" content="2021-07-01T05:58:37+05:30" />
+<meta itemprop="wordCount" content="646">
+<meta itemprop="keywords" content="gsoc,kde," /><meta property="og:title" content="GSOC: Week Three" />
+<meta property="og:description" content="This blog post highlights my third week at KDE Community during the Google Summer of Code 2021." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://swaptr.github.io/site/posts/gsoc_week_three/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-01T05:58:37+05:30" />
+<meta property="article:modified_time" content="2021-07-01T05:58:37+05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GSOC: Week Three"/>
+<meta name="twitter:description" content="This blog post highlights my third week at KDE Community during the Google Summer of Code 2021."/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://swaptr.github.io/site/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://swaptr.github.io/site/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://swaptr.github.io/site/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://swaptr.github.io/site/js/main.js"></script>
+</head>
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<div class="avatar">
+		<a href="https://swaptr.github.io/site/">
+			<img src="https://avatars.githubusercontent.com/u/83858160?v=4" alt="swaptr&#39;s blog" />
+		</a>
+	</div>
+	
+	<h1 class="site-title"><a href="https://swaptr.github.io/site/">swaptr&#39;s blog</a></h1>
+	<div class="site-description"><p style="font-size:14px;">This was supposed to be fun and it&rsquo;s not fun because it&rsquo;s too hard.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/swaptr" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/swaptr06" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/site/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/site/posts">Posts</a>
+			</li>
+			
+			<li>
+				<a href="/site/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/site/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">01</span>
+							<span class="rest">Jul 2021</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">GSOC: Week Three</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>Just one of those days when you wake up and feel like &ldquo;I knew there was something wrong, or something way too easy&rdquo;. It seemed like an average task but I was sure I was missing something.<br>
+So what am I talking about??!!<br>
+Well, GPodder is a pretty basic API and hence it does not offer you anything too fancy, and hence from all that I could use, it still felt that page is pretty minimal since the search delegate could not be populated with anythingmore than the podcast name in all honesty, this is too bad since I was expecting it to atleast return some images and more metadata. I could see that the delegate was pretty empty and it could use some fancy editing. In this quest I decided to create individual XmlListModel&rsquo;s for each xmlUrl and return some metadata from it (you can already feel how tiresome and sloooowwwww it would be, which was exactly the case.). Each ping would take several seconds to display the most basic data, before it fetches the images and everything, and we are talking about almost 10 seconds in preparing each request, which was like too much. Even more when you think that I was planning to implement some carousels with recommendations and trending lists, and with a 10+ second overhead, and each search returning 20 results on an average would all load just too slow. We decided maybe there was a need of a better API and we should probably start exploring options. :(<br>
+So yes, it seems the previous week&rsquo;s progress would have to be junked, maybe we could use the frontend but the business logic of all those XmlListModel&rsquo;s would have to replace with a better solution. We had several API&rsquo;s available to us from the start, and from all of our option, <a href="https://github.com/eazyliving/fyyd-api#search">Fyyd</a> and <a href="https://podcastindex.org/">PodcastIndex</a>. Eventually it would be PodcastIndex which also has a secure request authorization.<br>
+At this time, I started working on preparing the android development environment for KDE apps. Bart de Vries and Tobias Fella were very helpful (like they always have been throughout the timeline) in dictating each and every step meticulously. Creating APK&rsquo;s of KDE apps is done through android docker environment and since I am relatively new to docker, initially I had trouble following, but it was made easier by luculent steps laid out by Bart, he even gave his own scripts and I firmly believe one can create a wonderful tutorial out of it, it was so easy to follow along. Thanks to Tobias Fella, I could also setup the newer way of building apks using our own build system and package manager <a href="https://community.kde.org/Craft">Craft</a>.<br>
+So later this week after taking a couple of days off, I decided to start working on a newer model. Tobias Fella had already added the part of the model where we make a network request using a search URL and then all I had to do is to store the data by creating some custom roles. This would mean, I have to reuse the frontend from the previous model and simply connect the search button to the new model and then use the stored results to populate the the result listview and the FeedOverviewDrawers. This was all relatively easy and since we were the ones writing the code, it was much more flexible than readymade models.<br>
+So it went well and I got my code changes reviewed, I still have a few issues to fix and some old MR&rsquo;s to complete which I had almost forgotten for the next week but nothing too serious for now. The difficult part has been setting up this Jekyll site for now on my main Arch system, it runs into gem errors every then and now or some issues regarding image renders and then all I am left with is to start over again :D.</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/gsoc">gsoc</a></li>
+							
+							<li><a href="/tags/kde">kde</a></li>
+							
+						</ul>
+					
+				
+			</div></div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2022  © The MIT License (MIT) |  Swapnil Tripathi
+		</div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>

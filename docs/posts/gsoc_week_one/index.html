@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>GSOC: Week One - swaptr&#39;s blog</title><link rel="icon" type="image/png" href=icons/favicon.ico /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta itemprop="name" content="GSOC: Week One">
+<meta itemprop="description" content="This blog post sums up my first week at KDE Community during the Google Summer of Code 2021."><meta itemprop="datePublished" content="2021-06-14T04:22:17+05:30" />
+<meta itemprop="dateModified" content="2021-06-14T04:22:17+05:30" />
+<meta itemprop="wordCount" content="467">
+<meta itemprop="keywords" content="gsoc,kde," /><meta property="og:title" content="GSOC: Week One" />
+<meta property="og:description" content="This blog post sums up my first week at KDE Community during the Google Summer of Code 2021." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://swaptr.github.io/site/posts/gsoc_week_one/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-06-14T04:22:17+05:30" />
+<meta property="article:modified_time" content="2021-06-14T04:22:17+05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GSOC: Week One"/>
+<meta name="twitter:description" content="This blog post sums up my first week at KDE Community during the Google Summer of Code 2021."/>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://swaptr.github.io/site/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://swaptr.github.io/site/css/main.css" />
+
+	<link id="dark-scheme" rel="stylesheet" type="text/css" href="https://swaptr.github.io/site/css/dark.css" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://swaptr.github.io/site/js/main.js"></script>
+</head>
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+	<div class="avatar">
+		<a href="https://swaptr.github.io/site/">
+			<img src="https://avatars.githubusercontent.com/u/83858160?v=4" alt="swaptr&#39;s blog" />
+		</a>
+	</div>
+	
+	<h1 class="site-title"><a href="https://swaptr.github.io/site/">swaptr&#39;s blog</a></h1>
+	<div class="site-description"><p style="font-size:14px;">This was supposed to be fun and it&rsquo;s not fun because it&rsquo;s too hard.</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/swaptr" title="Github"><i data-feather="github"></i></a></li><li><a href="https://twitter.com/swaptr06" title="Twitter"><i data-feather="twitter"></i></a></li><li><a href="index.xml" title="RSS"><i data-feather="rss"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/site/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/site/posts">Posts</a>
+			</li>
+			
+			<li>
+				<a href="/site/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/site/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">14</span>
+							<span class="rest">Jun 2021</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">GSOC: Week One</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>So last blog we finished on the kdereview thing. I remind you this because a lot of work this week would end up being related to issues raised in the kdereview.<br>
+We started by fixing issues with the color of the HeaderBar, a lot of which were basic fixes in accordance to KDE visual guidelines. Now that we had people from the VDG involved, we could now hope to better insights into the graphical aspects of the app. Another fix that I had to add was to shrink the sidebar when the app is in a narrow mode and expand otherwise.<br>
+To get started with the Streaming support, I decided to use the GStreamer package and tried building on of its QML examples, to run the example, I had to set up a custom GStreamer build which I must tell is a pain.<br>
+I then had to start working on one of the kdereview issues which was to highlight the currently opened page. Now this would be a simple fix but we decided to venture into a better and more effective method page handling. Initially the solution was to use a simple Kirigami Pagepool, pushing and popping page at will, and just keeping track of the currentPage, but we could not incorporate an effective highlighting strategy here. So I decided to spring up a more &ldquo;smarter&rdquo; (i am guessing :P) way of only pushing-only-the-pages-that-would-make-sense, in this way we would have the reference to the base page and we could highlight it as per the users choice. So the catch here is that the pages related to individual feeds need you provide the feed reference as a required property, same as with the EntryPages. So now, not only would we need to have a reference to the Root page, but also to the individual Feed and Entry pages, and then to the pages themselves. This was done by implementing two functions getPage() and pushPage(), where the former would return an instance of the page, and the latter would take arguments in the form of a list of pages and their properties and then accordingly push those pages onto the stack. With hindsight the subsequent week was denoted to successive refactorings to keep in check for several properties.<br>
+Later this week I started looking into the content discovery issue and designing the frontend of the application. We are using the GPodder Search API so we would need some way to manipulate the .OPML files returned from the search, I had inputs from Bart and Tobias as to how to prepare the C++ backend of the code and I prepared another MR with tooltips and keyboard navigation. So the progress is slightly slower for now but its only the start and I expect to pick the pace soon enough. :)</p>
+
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/gsoc">gsoc</a></li>
+							
+							<li><a href="/tags/kde">kde</a></li>
+							
+						</ul>
+					
+				
+			</div></div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2022  © The MIT License (MIT) |  Swapnil Tripathi
+		</div>
+	</nav>
+</div>
+
+<script>feather.replace()</script>
+</body>
+</html>
